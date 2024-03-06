@@ -29,7 +29,7 @@ export class User {
   }
 
   set email(email: string) {
-    this.props.email;
+    this.props.email = email;
   }
 
   get password(): string {
@@ -37,18 +37,18 @@ export class User {
   }
 
   set password(password: string) {
-    this.props.password;
+    this.props.password = password;
   }
 
   get name(): string {
-    return this.name;
+    return this.props.name;
   }
 
   set name(name: string) {
-    this.props.name;
+    this.props.name = name;
   }
-  
+
   get created_at(): Date {
-    return this.created_at;
+    return this.props.created_at;
   }
 }
