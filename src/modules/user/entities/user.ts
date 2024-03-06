@@ -5,17 +5,17 @@ interface UserSchema {
   email: string;
   password: string;
   name: string;
-  createdAt: Date;
+  created_at: Date;
 }
 
 export class User {
   props: UserSchema;
   _id: string;
 
-  constructor(props: Replace<UserSchema, { createdAt?: Date }>, id?: string) {
+  constructor(props: Replace<UserSchema, { created_at?: Date }>, id?: string) {
     this.props = {
       ...props,
-      createdAt: props.createdAt || new Date(),
+      created_at: props.created_at || new Date(),
     };
     this._id = id || randomUUID();
   }
@@ -48,7 +48,7 @@ export class User {
     this.props.name;
   }
   
-  get createdAt(): Date {
-    return this.createdAt;
+  get created_at(): Date {
+    return this.created_at;
   }
 }
