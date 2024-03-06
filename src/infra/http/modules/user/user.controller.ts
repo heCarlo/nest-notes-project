@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { CreateUserUseCase } from 'src/modules/user/useCases/createUserUseCase/createUserUseCase';
 import { CreateUserBody } from './dtos/createUserBody';
 
@@ -10,10 +10,16 @@ export class UserController {
     const { email, name, password } = body;
 
     const user = await this.CreateUseCase.execute({
-        email,
-        name,
-        password
+      email,
+      name,
+      password,
     });
-    return user
+    return user;
+  }
+
+  @Get()
+  async getHello() {
+    const hellow = 'hellow world';
+    return hellow;
   }
 }
