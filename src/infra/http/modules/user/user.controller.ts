@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { CreateUserUseCase } from 'src/modules/user/useCases/createUserUseCase/createUserUseCase';
 import { CreateUserBody } from './dtos/createUserBody';
+import { UserViewModel } from './viewModel/userViewModel';
 
 @Controller('users')
 export class UserController {
@@ -14,12 +15,6 @@ export class UserController {
       name,
       password,
     });
-    return user;
-  }
-
-  @Get()
-  async getHello() {
-    const hellow = 'hellow world';
-    return hellow;
+    return UserViewModel.toHttp(user);
   }
 }
